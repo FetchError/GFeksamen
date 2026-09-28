@@ -1,0 +1,76 @@
+﻿//Jonathan Busk
+//Opgave 44
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Deklaration af variabel til at gemme brugerens valg
+        string valg;
+
+        // Løkke der kører indtil brugeren trykker 9 for at afslutte
+        while (true)
+        {
+            // Udskriver menuen til brugeren
+            Console.WriteLine("========================");
+            Console.WriteLine("=== Areal beregner  ===");
+            Console.WriteLine("========================");
+            Console.WriteLine("1. Rektangel");
+            Console.WriteLine("2. Cirkel");
+            Console.WriteLine("3. Retvinklet trekant");
+            Console.WriteLine("9. Afslut");
+            Console.Write("Vælg en figur (1-3) eller 9 for at afslutte: ");
+
+            // Læser brugerens input
+            valg = Console.ReadLine();
+
+            // Tjekker hvilken figur brugeren har valgt
+            switch (valg)
+            {
+                case "1":
+                    // Beregner arealet af et rektangel
+                    Console.Write("Indtast længde i cm: ");
+                    double længde = double.Parse(Console.ReadLine()!);
+                    Console.Write("Indtast bredde i cm: ");
+                    double bredde = double.Parse(Console.ReadLine()!);
+                    double arealRektangel = længde * bredde;
+                    Console.WriteLine($"Arealet af rektanglet er: {arealRektangel} cm2");
+                    break;
+
+                case "2":
+                    // Beregner arealet af en cirkel
+                    Console.Write("Indtast radius i cm: ");
+                    double radius = double.Parse(Console.ReadLine()!);
+                    double arealCirkel = Math.PI * radius * radius;
+                    Console.WriteLine($"Arealet af cirklen er: {Math.Round(arealCirkel, 2)} cm2");
+                    break;
+
+                case "3":
+                    // Beregner arealet af en retvinklet trekant
+                    Console.Write("Indtast grundlinje i cm: ");
+                    double grundlinje = double.Parse(Console.ReadLine()!);
+                    Console.Write("Indtast højde i cm: ");
+                    double højde = double.Parse(Console.ReadLine()!);
+                    double arealTrekant = grundlinje * højde / 2;
+                    Console.WriteLine($"Arealet af trekanten er: {arealTrekant} cm2");
+                    break;
+
+                case "9":
+                    // Afslutter programmet hvis brugeren trykker 9
+                    Console.WriteLine("Programmet afsluttes");
+                    return;
+
+                default:
+                    // Giver fejlbesked hvis brugeren ikke har tastet et gyldigt valg
+                    Console.WriteLine("Ugyldigt valg - prøv igen");
+                    break;
+            }
+
+            // Venter på at brugeren trykker på en tast før menuen vises igen
+            Console.WriteLine("Tryk Enter for at fortsætte...");
+            Console.ReadLine();
+        }
+    }
+}

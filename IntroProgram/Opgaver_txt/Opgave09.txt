@@ -1,0 +1,15 @@
+﻿namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Blue;
+
+        Console.WriteLine("Hello, World!");
+        Console.Beep(440, 2000);
+
+        Console.ReadLine();
+    }
+}

@@ -1,0 +1,50 @@
+﻿//Jonathan Busk
+//Opgave 56
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Array med ugedagene
+        string[] ugedage = { "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag" };
+
+        // Array til at gemme temperaturer for hver dag
+        // Gemmes som double da der kan være kommatal efter gennemsnit er fundet
+        double[] temperaturer = new double[7];
+
+        // Variabel til at holde summen af alle temperaturer
+        double sum = 0;
+
+        Console.WriteLine("Temperaturmåling over 7 dage");
+        Console.WriteLine("");
+        Console.WriteLine(" ");
+
+        // For løkke der beder brugeren om at indtaste temperaturen for hver dag
+        for (int i = 0; i < temperaturer.Length; i++)
+        {
+            Console.Write($"Indtast temperaturen for {ugedage[i]}: "); // Spørger om temperaturen for den pågældende dag
+            temperaturer[i] = double.Parse(Console.ReadLine()?? ""); // Parser string input til double og gemmer i array. (?? "") sikrer at null erstattes med tom streng så programmet ikke crasher 
+        }
+
+        Console.WriteLine(" ");
+        Console.WriteLine("Oversigt over temperaturer:");
+        Console.WriteLine(" ");
+
+        // Løkke der udskriver dag, temperatur og finder summen af temperatureene
+        for (int i = 0; i < temperaturer.Length; i++)
+        {
+            Console.WriteLine($"{ugedage[i]}: {temperaturer[i]} grader"); // Udskriver ugedag og temperatur sammen
+            sum += temperaturer[i]; // Lægger temperaturen til summen
+        }
+
+        // Beregner gennemsnittet ved at dividere summen med antal dage
+        double gennemsnit = sum / temperaturer.Length;
+
+        Console.WriteLine(" ");
+        Console.WriteLine($"Gennemsnitstemperatur for ugen: {gennemsnit:N2} grader"); // Udskriver gennemsnittet med 2 decimaler
+
+        Console.ReadLine();
+    }
+}

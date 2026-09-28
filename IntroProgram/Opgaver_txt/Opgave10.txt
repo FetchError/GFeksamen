@@ -1,0 +1,42 @@
+﻿namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Clear();
+
+        // Centrer flaget
+        int x = Console.WindowWidth / 2;
+        int y = Console.WindowHeight / 2;
+
+        // Rød baggrund
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.SetCursorPosition(x, y + 0); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 1); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 2); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 3); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 4); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 5); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 6); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 7); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 8); Console.Write("                        ");
+        Console.SetCursorPosition(x, y + 9); Console.Write("                        ");
+
+        // Hvidt kors 
+        Console.BackgroundColor = ConsoleColor.White;
+        Console.SetCursorPosition(x,y + 4); Console.Write("                        ");
+        Console.SetCursorPosition(x,y + 5); Console.Write("                        ");
+        Console.SetCursorPosition(x + 11, y + 0); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 1); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 2); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 3); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 6); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 7); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 8); Console.Write("    ");
+        Console.SetCursorPosition(x + 11, y + 9); Console.Write("    ");
+
+
+        Console.ReadKey();
+    }
+}

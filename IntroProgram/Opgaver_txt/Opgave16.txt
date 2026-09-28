@@ -1,0 +1,30 @@
+﻿//Jonathan Busk
+//Opgave 16
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        
+        //Udskriver tekst til konsollen
+        Console.WriteLine("Indtast radius: ");
+
+        //Konverterer fra string til double
+        double radius = Convert.ToDouble(Console.ReadLine());
+
+        //Udregner arealet og omkredsen af cirklen
+        double areal = Math.PI * Math.Pow(radius, 2);
+        double omkreds = 2 * Math.PI * radius;
+
+        //Udskriver resultatet
+        Console.WriteLine("Arealet af cirklen er: " + areal + " cm²");
+        Console.WriteLine("Omkredsen af cirklen er: " + omkreds + " cm");
+
+
+        Console.ReadLine(); 
+
+    }
+}

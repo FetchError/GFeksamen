@@ -1,0 +1,33 @@
+﻿//Jonathan Busk
+//Opgave 17
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        
+        //Udskriver tekst til konsollen
+        Console.Write("Indtast højde: ");
+
+        //Konverterer fra string til double
+        double højde = Convert.ToDouble(Console.ReadLine());
+        
+        Console.Write("Indtast grundlinje: ");
+
+        //Konverterer fra string til double
+        double grundlinje = Convert.ToDouble(Console.ReadLine());
+
+        //Udregner omkredsen af trekanten
+        double omkreds = grundlinje + 2 * Math.Sqrt(Math.Pow(højde, 2) + Math.Pow(grundlinje / 2, 2));
+
+        //Udskriver resultatet
+        Console.WriteLine("Omkredsen af trekanten er: " + omkreds + " cm");
+
+
+        Console.ReadLine(); 
+
+    }
+}

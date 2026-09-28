@@ -1,0 +1,82 @@
+﻿//Jonathan Busk
+//Opgave 38
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Byder bruger velkommen
+        Console.WriteLine("Velkommen til DitTøjValg.dk");
+
+        // Deklarerer variabler som pris, størreslesnavn og størrelse 
+        int pris = 0;
+        string størrelsesnavn = "";
+        string størrelse;
+
+        do // Laver en do-while loop som tjekker om størrelsen er s, m eller l, hvis ikke så bliver brugeren bedt om at indtaste en gyldig størrelse
+        {   // Spørger bruger om størrelse af T-Shirt
+            Console.Write("Indtast din T-Shirt størrelse: s/m/l: ");
+            // Læser brugerens input og konverterer det til små bogstaver
+            størrelse = Console.ReadLine().ToLower();
+
+            // Tjekker for hvis størrelse ikke er s, m eller l, så udskriver den beskeden under
+            if (størrelse != "s" && størrelse != "m" && størrelse != "l")
+            {
+                // Udskriver beskeden
+                Console.WriteLine("Ikke en gyldig størrelse, indtast s, m eller l");
+            }
+
+        // Dette loop kører når størrelsen ikke er s, m eller l
+        } while (størrelse != "s" && størrelse != "m" && størrelse != "l");
+
+        //Tjekker for om størrelsen er s
+        if (størrelse == "s")
+        {
+            // Sætter prisen og størrelsesnavn
+            pris = 120;
+            størrelsesnavn = "Small";
+        }
+        // Tjekker for om størrelsen er m
+        else if (størrelse == "m")
+        {
+            // Sætter prisen og størrelsesnavn
+            pris = 160;
+            størrelsesnavn = "Medium";
+        }
+        // Tjekker for om størrelsen er l
+        else if (størrelse == "l")
+        {
+            // Sætter prisen og størrelsesnavn
+            pris = 185;
+            størrelsesnavn = "Large";
+        }
+
+        // Udskriver pris på den valgte størrelse
+        Console.WriteLine("Prisen på en " + størrelsesnavn + " T-Shirt er: " + pris + " DKK");
+        // Spørger bruger hvor mange T-Shirts bruger vil købe af den valgte størrelse
+        Console.Write("Hvor mange " + størrelsesnavn + " T-Shirts vil du købe? ");
+
+        // Deklarer antal T-Shirts, og konverter det til en int
+        int antal = Convert.ToInt32(Console.ReadLine());
+        double totalPris = pris * antal;
+
+        // Tjekker på om antal er højere end 10
+        if (antal > 10)
+        {
+            double rabat = totalPris * 0.05;
+            totalPris = totalPris - rabat;
+
+            Console.WriteLine("Du har optjent 5% rabat!");
+            Console.WriteLine("Rabat: " + rabat + " DKK");
+            Console.WriteLine("Totalpris for " + antal + " stk. " + størrelsesnavn + " T-Shirts: " + totalPris + " DKK");
+        }
+        else
+        {
+            Console.WriteLine("Totalpris for " + antal + " stk. " + størrelsesnavn + " T-Shirts: " + totalPris + " DKK");
+        }
+
+        Console.ReadKey();
+    }
+}

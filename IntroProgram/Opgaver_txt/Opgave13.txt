@@ -1,0 +1,12 @@
+﻿namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string navn = "Jonathan";
+
+        Console.WriteLine(navn);
+
+    }
+}

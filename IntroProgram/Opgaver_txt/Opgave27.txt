@@ -1,0 +1,29 @@
+﻿//Jonathan Busk
+//Opgave 27
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Deklarer variablen pris
+        double pris;
+
+        //Spørger brugeren om prisen
+        Console.Write("Indtast prisen: ");
+
+        //Konverterer til kommatal
+        pris = Convert.ToDouble(Console.ReadLine());
+
+        //Tjekker for om prisen er over 1000
+        if (pris >= 1000)
+        // Hvis den er udskrives dette
+        Console.WriteLine("Du får 5% rabat");
+        else
+        // Hvis ikke udskrives dette
+        Console.Write("Der er ikke rabat");
+        
+        Console.ReadLine();
+    }
+}

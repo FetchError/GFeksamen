@@ -1,0 +1,88 @@
+//Jonathan Busk
+//Opgave 23
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Byder brugen velkommen
+        Console.WriteLine("Velkommen til DitTøjValg.dk");
+        // Sprøger brugeren om størrelsen af T-Shirt
+        Console.Write("Indtast din T-Shirt størrelse: s/m/l: ");
+
+        // Læser brugerens input og konverterer det til små bogstaver
+        string størrelse = Console.ReadLine().ToLower();
+
+        // Variabler ssættes til pris og størrelsesnavn
+        int pris = 0;
+        string størrelsesnavn = "";
+
+        // Tjekker for om brugers input er s
+        if (størrelse == "s")
+        {
+            // Sætter pris og størrelsesnavn for small
+            pris = 120;
+            størrelsesnavn = "Small";
+        }
+        // Tjekker for om brugers input er m
+        else if (størrelse == "m")
+        {
+            // Sææter pris og størrelsenavn for medium 
+            pris = 160;
+            størrelsesnavn = "Medium";
+        }
+        // Tjekker for om brugers input er l 
+        else if (størrelse == "l")
+        {
+            // Sætter pris og størrelsenavn for large
+            pris = 185;
+            størrelsesnavn = "Large";
+        }
+        // Tjekker for alt andet input end s, m eller l
+        else
+        {
+            // Hvis alt andet input, så bliver dette udskrevet til brugeren
+            Console.WriteLine("Dette er ikke en gyldig størrelse. Vælg S, M eller L.");
+        }
+
+        // Tjekker for hvis prisen er større end 0
+        if (pris > 0)
+        {
+            // Hvis prisen er større end 0, så skriver den størrelsesnavnet, samt prisen på den valgte størrelse
+            Console.WriteLine("Prisen på en " + størrelsesnavn + " T-Shirt er: " + pris + " DKK");
+            // Sprøger bruger om hvor mange T-Shirts brugeren vil købe
+            Console.Write("Hvor mange " + størrelsesnavn + " T-Shirts vil du købe? ");
+
+            // Konverter input fra streng til int (antal T-Shirts)
+            int antal = Convert.ToInt32(Console.ReadLine());
+
+            // Ganger prisen med antal trøjer
+            double totalPris = pris * antal;
+
+            // Tjekker for om antal er højere end 10
+            if (antal > 10)
+            {
+                // Tager total prisen og ganger med 0,05 for at finde 5% rabat 
+                double rabat = totalPris * 0.05;
+                // Tager total prisen og minuser de 5 % rabat
+                totalPris = totalPris - rabat;
+
+                // Udskriver at man har optjent 5% rabat hvis man har købt mere end 10 trøjer
+                Console.WriteLine("Du har optjent 5% rabat!");
+                // Udskriver hvor meget rabat man har fået
+                Console.WriteLine("Rabat: " + rabat + " DKK");
+                // Udskriver den totale antal, størrelsesnavn og total prisen på de købte trøjer
+                Console.WriteLine("Totalpris for " + antal + " stk. " + størrelsesnavn + " T-Shirts: " + totalPris + " DKK");
+            }
+            else
+            {
+                // Udskriver dette hvis der ikke er rabat
+                Console.WriteLine("Totalpris for " + antal + " stk. " + størrelsesnavn + " T-Shirts: " + totalPris + " DKK");
+            }
+        }
+
+        Console.ReadKey();
+    }
+}

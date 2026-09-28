@@ -1,0 +1,16 @@
+﻿//Jonathan Busk
+//Opgave 18
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Hvis der står tal ! = 4, udskriver den alle tal undtagen 4. Men hvis tallet er nøjagtig 4, sker der ingenting. 
+        
+        // Hvis der står tal < 4 udskriver den kun tal mindre end 4. Hvis tallet er 4 eller større, sker der ingenting.
+
+    }
+}

@@ -1,0 +1,32 @@
+﻿//Jonathan Busk
+//Opgave 34
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Random objekt til at generere tilfældige tal
+        Random RandomObj = new Random();
+
+        // Variabler til at holde styr på kast og antal kast
+        int kast;
+        int antal_kast = 0;
+
+        // Loop der kaster terningen indtil den har kastet 100 gange
+        do
+        {
+            // Generer et tilfældigt tal mellem 1 og 6
+            kast = RandomObj.Next(1, 7);
+            // Udskriv resultatet af kastet
+            Console.WriteLine("Terning viste: {0}", kast);
+            // Tilføjer 1 til antal kast
+            antal_kast ++;
+        }
+        // Fortsæt loopet indtil antal kast er højere end 100
+        while (antal_kast < 100);
+
+        Console.ReadKey();
+    }
+}

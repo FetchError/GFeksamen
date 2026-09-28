@@ -1,0 +1,200 @@
+// ============================================================
+// SKABELONER - Byggeklodser fra pensum
+// ============================================================
+
+// ---- 1. VARIABLER ----
+string navn = "Torben";
+int alder = 61;
+double hoejde = 1.93;
+
+// ---- 2. UDSKRIVNING ----
+Console.WriteLine("Tekst: " + navn);                          // Sammenkædning
+Console.WriteLine($"Navn: {navn} Alder: {alder}");           // Interpolering
+Console.WriteLine("Navn: {0} Alder: {1}", navn, alder);      // Indekseret
+Console.Write("Uden linjeskift");
+Console.ReadKey();
+
+// ---- 3. KONSOL-FARVER OG CURSOR ----
+Console.Clear();
+Console.ForegroundColor = ConsoleColor.Green;
+Console.BackgroundColor = ConsoleColor.Black;
+Console.ResetColor();
+Console.SetCursorPosition(10, 5); // (kolonne, linje)
+
+// ---- 4. INPUT FRA BRUGER ----
+Console.Write("Indtast navn: ");
+string inputNavn = Console.ReadLine() ?? "";
+
+Console.Write("Indtast tal: ");
+int inputInt = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Indtast decimaltal: ");
+double inputDouble = double.Parse(Console.ReadLine() ?? "0");
+
+// ---- 5. OPERATORER ----
+int a = 10, b = 20;
+int sum        = a + b;
+int forskel    = a - b;
+int produkt    = a * b;
+double kvotient = (double)a / b;
+int rest       = b % a; // Modulus - resten ved division
+
+// ---- 6. SAMMENLIGNINGER ----
+if (a == b) { }   // lig med
+if (a != b) { }   // forskellig fra
+if (a < b)  { }   // mindre end
+if (a > b)  { }   // større end
+if (a <= b) { }   // mindre end eller lig med
+if (a >= b) { }   // større end eller lig med
+
+// ---- 7. LOGISKE OPERATORER ----
+if (a > 0 && b > 0) { }   // Begge skal være sande (OG)
+if (a > 0 || b > 0) { }   // Mindst én skal være sand (ELLER)
+
+// ---- 8. MATH ----
+Console.WriteLine(Math.Sqrt(9));        // Kvadratrod = 3
+Console.WriteLine(Math.Pow(3, 2));      // 3^2 = 9
+Console.WriteLine(Math.Max(10, 20));    // Største tal = 20
+Console.WriteLine(Math.PI);            // Pi = 3.14...
+
+// ---- 9. IF-ELSE ----
+if (a > 10)
+{
+    Console.WriteLine("Større end 10");
+}
+else if (a == 10)
+{
+    Console.WriteLine("Lig med 10");
+}
+else
+{
+    Console.WriteLine("Mindre end 10");
+}
+
+// ---- 10. FOR-LØKKE ----
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine("i er: " + i);
+}
+
+// ---- 11. WHILE-LØKKE ----
+int tæller = 0;
+while (tæller < 5)
+{
+    Console.WriteLine("Tæller: " + tæller);
+    tæller++;
+}
+
+// string.Length eksempel
+string tekst = "Hello!";
+int i2 = 0;
+while (i2 < tekst.Length)
+{
+    Console.WriteLine(tekst[i2]);
+    i2++;
+}
+
+// ---- 12. DO-WHILE ----
+Random random = new Random();
+int tal;
+do
+{
+    tal = random.Next(1, 10); // Tilfældigt tal 1-9
+    Console.WriteLine("Tal: " + tal);
+} while (tal != 5); // Fortsæt indtil vi får 5
+
+// ---- 13. SWITCH-CASE ----
+int dag = 3;
+switch (dag)
+{
+    case 1:
+        Console.WriteLine("Mandag");
+        break;
+    case 2:
+        Console.WriteLine("Tirsdag");
+        break;
+    case 3:
+        Console.WriteLine("Onsdag");
+        break;
+    default:
+        Console.WriteLine("Ugyldig dag");
+        break;
+}
+
+// ---- 14. ARRAYS + FOREACH ----
+string[] frugter = { "Ananas", "Æble", "Banan", "Pære" };
+Array.Sort(frugter); // Sortér alfabetisk
+foreach (string frugt in frugter)
+{
+    Console.WriteLine(frugt);
+}
+
+int[] tal2 = { 5, 3, 8, 1 };
+Array.Sort(tal2); // Sortér tal
+
+// ---- 15. METODER ----
+
+// Uden argumenter, uden return
+static void PrintHello()
+{
+    Console.WriteLine("Hej Verden!");
+}
+
+// Med argumenter, uden return
+static void Greet(string navn2)
+{
+    Console.WriteLine("Hej " + navn2);
+}
+
+// Med argumenter, med return
+static int Add(int x, int y)
+{
+    return x + y;
+}
+
+// Kald metoderne:
+PrintHello();
+Greet("Alice");
+int resultat = Add(5, 3);
+Console.WriteLine("Resultat: " + resultat);
+
+// ---- 16. FILHÅNDTERING ----
+// using System.IO; øverst i filen!
+File.WriteAllText("minfil.txt", "Hej, verden!");           // Skriv til fil
+string indhold = File.ReadAllText("minfil.txt");           // Læs fra fil
+Console.WriteLine("Filindhold: " + indhold);
+
+// Skriv flere linjer
+File.WriteAllLines("minfil.txt", new string[] { "Linje 1", "Linje 2" });
+
+// Læs alle linjer
+string[] linjer = File.ReadAllLines("minfil.txt");
+foreach (string linje in linjer)
+    Console.WriteLine(linje);
+
+// Tilføj til fil (append)
+File.AppendAllText("minfil.txt", "\nNy linje");
+
+// ---- 17. DATETIME ----
+DateTime nu = DateTime.Now;
+Console.WriteLine("Dato og tid: " + nu);
+Console.WriteLine("Dato: " + nu.ToString("dddd d MMMM yyyy"));
+Console.WriteLine("Med tid: " + nu.ToString("dddd d MMMM yyyy HH:mm:ss"));
+
+Console.WriteLine("År: " + nu.Year);
+Console.WriteLine("Måned: " + nu.Month);
+Console.WriteLine("Dag: " + nu.Day);
+Console.WriteLine("Time: " + nu.Hour);
+
+DateTime imorgen = nu.AddDays(1);
+DateTime sidsteMåned = nu.AddMonths(-1);
+
+// Opret specifik dato
+DateTime festdag = new DateTime(2024, 12, 24); // juleaften
+
+// Sammenlign datoer
+if (imorgen > nu)
+    Console.WriteLine("I morgen er efter i dag");
+
+// Parse dato fra streng
+DateTime parsedDato = DateTime.Parse("2024-10-15");

@@ -1,0 +1,105 @@
+﻿//Jonathan Busk
+//Opgave 24
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Byder brugeren velkommen 
+        Console.WriteLine("Velkommen til Hotel Diablo");
+        // Info for bruger så man ved hvad der skal indtastes
+        Console.WriteLine("Enkeltværelse = E");
+        Console.WriteLine("Dobbeltværelse = D");
+        Console.WriteLine("Familieværelse = F");
+
+        //Spørger bruger hvilket værelse de vil booke
+        Console.Write("Indtast hvilket slags værelse du gerne vil booke: ");
+        
+        //Læser brugerens input og gemmer det i en variabel og laver det til små bagstaver
+        string værelse_type = Console.ReadLine().ToLower();
+
+        // Spørger bruger om antal værelser 
+        Console.Write("Indtast hvor mange værelser du vil booke: ");
+
+        // Læser brugerens input og gemmer det i en variabel
+        int værelse_antal = int.Parse(Console.ReadLine());
+
+        // Sprøger bruger om antal dage man vil booke det
+        Console.Write("Indtast hvor mange dage du vil booke: ");
+
+        // Læser brugerens input og gemmer det i en variabel
+        int værelse_dage = int.Parse(Console.ReadLine());
+
+        // Deklarere en variabel til at holde prisen 
+        int pris = 0;
+
+        // Tjekker for om værelses typen er e (Enkeltværelse)
+        if (værelse_type == "e")
+        {
+            // Hvis det er true, så udskrives hvilket værelse det er brugeren vil booke
+            værelse_type = "Enkeltværelse";
+            pris = 765;
+            Console.WriteLine("Du har booket et enkeltværelse");
+        }
+        // Tjekker for om værelses typen er d (Dobbeltværelse)
+        else if (værelse_type == "d")
+        {
+            // Hvis det er true, så udskrives hvilket værelse det er brugeren vil booke
+            værelse_type = "Dobbeltværelse";
+            pris = 980;
+            Console.WriteLine("Du har booket et dobbeltværelse");
+        }
+        // Tjekker for om værelses typen er f (Familieværelse)
+        else if (værelse_type == "f")
+        {
+            // Hvis det er true, så udskrives hvilket værelse det er brugeren vil booke
+            værelse_type = "Familieværelse";
+            pris = 1250;
+            Console.WriteLine("Du har booket et familieværelse");
+        }
+        // Hvis bruger hverken indtaster dkk eller eur bliver der skrevet Ugyldigt værelse type til brugeren
+        else
+        {
+            Console.WriteLine("Ugyldigt værelse type");
+        }
+            // Deklarere en variabel til total pris i DKK 
+            int total_dkk = værelse_antal * værelse_dage * pris;
+            // Konverter dkk til eur 
+            double total_eur = total_dkk / 7.46;
+
+            // Sprøger bruger hvilken valuta de vil betale i
+            Console.WriteLine("Vil du betale i DKK, eller i EUR? ");
+
+            // Tager brugeren input, laver det til små bagstaver og gemmer det
+            string valuta = Console.ReadLine().ToLower();
+
+            // Tjekker for hvis brugeren har skrevet dkk
+            if (valuta == "dkk")
+        {
+            // Udskriver den fulde bestilling af bookningen, med antal, type og dage man har booket
+            Console.WriteLine($"Tak for din bestilling");
+            Console.WriteLine($"Du har booket: {værelse_antal} {værelse_type} i {værelse_dage} dage");
+            // Udskriver prisen i DKK
+            Console.WriteLine($"Totalpris: {total_dkk} DKK");
+        }
+        // Tjekker for om brugeren skriver eur 
+        else if (valuta == "eur")
+        {
+            // Udskriver den fulde bestilling af bookningen, med antal, type og dage man har booket
+            Console.WriteLine($"Tak for din bestilling");
+            Console.WriteLine($"Du har booket: {værelse_antal} {værelse_type} i {værelse_dage} dage");
+            // Udskriver samlet pris i eur
+            Console.WriteLine($"Totalpris: {total_eur:F2} EUR");
+        }
+        // Hvis ingen af disse statements er sande, så bliver dette udskrevet
+        else
+        {
+            // Hvis bruger hverken skriver dkk eller eur bliver der udskrevet dette
+            Console.WriteLine("Ugydig valuta");
+        }
+
+        Console.ReadKey();
+    }
+}

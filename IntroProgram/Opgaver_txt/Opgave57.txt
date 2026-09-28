@@ -1,0 +1,43 @@
+﻿//Jonathan Busk
+//Opgave 57
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Hvor mange karakterer vil du beregne gennemsnittet af? "); // Beder brugeren om antal karakterer
+        int antal = int.Parse(Console.ReadLine() ?? "0"); // Gemmer antallet i variablen antal
+
+        int sum = 0; // Opretter en variabel til summen af karaktererne
+
+        for (int i = 1; i <= antal; i++) // Løber igennem alle karakterer
+        {
+            int karakter = 0; // Variabel til at holde værdi af karakteren
+            bool gyldig = false; // Holder styr på om inddata er gyldig
+
+            while (!gyldig) // Fortsætter indtil en gyldig karakter er indtastet
+            {
+                Console.Write("Indtast karakter " + i + ": "); // Beder brugeren om at indtaste en karakter
+                string inddata = Console.ReadLine() ?? ""; // Gemmer karakteren som tekst
+
+                if (inddata == "-3") { karakter = -3; gyldig = true; } // Tildeler karakteren -3
+                else if (inddata == "00") { karakter = 0; gyldig = true; } // Tildeler karakteren 0
+                else if (inddata == "02") { karakter = 2; gyldig = true; } // Tildeler karakteren 2
+                else if (inddata == "4") { karakter = 4; gyldig = true; } // Tildeler karakteren 4
+                else if (inddata == "7") { karakter = 7; gyldig = true; } // Tildeler karakteren 7
+                else if (inddata == "10") { karakter = 10; gyldig = true; } // Tildeler karakteren 10
+                else if (inddata == "12") { karakter = 12; gyldig = true; } // Tildeler karakteren 12
+                else { Console.WriteLine("Ugyldig karakter! Gyldige karakterer er: -3, 00, 02, 4, 7, 10, 12"); } // Udskriver fejlbesked
+            }
+
+            sum += karakter; // Lægger karakteren til summen
+        }
+
+        double gennemsnit = (double)sum / antal; // Beregner gennemsnittet ved at dividere summen med antallet
+        Console.WriteLine("Gennemsnittet er: " + gennemsnit); // Udskriver gennemsnittet
+
+        Console.ReadKey();
+    }
+}

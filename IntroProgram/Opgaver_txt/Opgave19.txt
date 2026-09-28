@@ -1,0 +1,33 @@
+﻿//Jonathan Busk
+//Opgave 19
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Deklarere variabel
+        int tal;
+
+        //Spørger brugeren om alder
+        Console.Write("Indtast din alder: ");
+
+        //Konvertere string til int
+        tal = Convert.ToInt16(Console.ReadLine());
+
+        //Tjekker om tallet er under 18
+        if (tal < 18)
+        {
+            //Udskriver dette hvis tallet er under 18
+            Console.WriteLine("Du kan ikke indgå købsaftaler på kredit, da du er under 18 år gammel.");
+        }
+        else
+        {   //Udskriver dette hvis tallet er 18 eller over
+            Console.WriteLine("Du er godkendt til at indgå købsaftaler på kredit.");
+        }
+
+        Console.ReadKey();
+    }
+}

@@ -1,0 +1,33 @@
+﻿namespace IntroProgram
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // Opgave 14a
+            Console.WriteLine("Du skal beregne arealet af trekanten!");
+            Console.WriteLine("Skriv højden på trekanten: ");
+            double trekant_height = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Skriv længden på trekantens grundlinje: ");
+            double trekant_grundlinje = Convert.ToDouble(Console.ReadLine());
+            double trekant_areal = 0.5 * trekant_grundlinje * trekant_height;
+            Console.WriteLine("Arealet af trekanten er: " + trekant_areal + " cm²");
+
+            // Opgave 14b
+            Console.WriteLine("Du skal beregne arealet af trekanten!");
+            Console.WriteLine("Skriv højden på trekanten: ");
+            double firekant_height = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Skriv længden på trekantens grundlinje: ");
+            double firekant_grundlinje = Convert.ToDouble(Console.ReadLine());
+            double firekant_areal = 0.5 * firekant_grundlinje * firekant_height;
+            Console.WriteLine("Arealet af trekanten er: " + firekant_areal + " cm²");
+
+        }
+
+    }
+}
+    
+
+
+

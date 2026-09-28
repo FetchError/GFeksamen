@@ -1,0 +1,31 @@
+﻿//Jonathan Busk
+//Opgave 33
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Spørger bruger om et tal
+        Console.Write("Indtast tal: ");
+
+        // Deklarerer variabel og konverterer input til int
+        int tal = Convert.ToInt32(Console.ReadLine()); 
+
+        // Tjekker på så længe tallet ikke er 50, så kører løkken igen
+        while (tal != 50)
+        {
+            // Hvis talelt ikke er 50 bliver dette udskrevet
+            Console.WriteLine("Ikke 50");
+
+            // Bruger bliver derefter så spurgt igen
+            Console.Write("Indtast tal: ");
+
+            // Konverterer input til int og gemmer det i variablen tal
+            tal = Convert.ToInt32(Console.ReadLine());
+        }
+
+        Console.ReadKey();
+    }
+}

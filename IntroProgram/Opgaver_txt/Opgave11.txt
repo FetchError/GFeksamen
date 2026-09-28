@@ -1,0 +1,19 @@
+﻿namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.BackgroundColor = ConsoleColor.Green;
+
+        Console.WriteLine("    ");
+
+
+        Console.Clear();
+
+        //Console.ReadKey();
+
+        //Uden ReadKey vil programmet hurtigt vise den grønne baggrund og derefter lukke ned, da der ikke er noget der holder det åbent.
+
+    }
+}

@@ -1,0 +1,34 @@
+﻿//Jonathan Busk
+//Opgave 26
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Deklaration af de rigtige loginoplysninger
+        string rigtigtBrugernavn = "admin";
+        string rigtigtPassword = "sikkerkode";
+
+        // Spørger brugeren om loginoplysninger
+        Console.Write("Indtast brugernavn til Hotel Diablo: ");
+        // Læser brugernavnet
+        string brugernavn = Console.ReadLine();
+
+        // Spørger brugeren om password
+        Console.Write("Indtast password: ");
+        // Læser passwordet
+        string password = Console.ReadLine();
+
+        // Tjekker om de indtastede oplysninger er korrekte
+        if (brugernavn == rigtigtBrugernavn && password == rigtigtPassword)
+            // Hvis de er korrekte, vises en velkomstbesked
+            Console.WriteLine("Velkommen til Hotel Diablo!");
+        else
+            // Hvis de er forkerte, vises en fejlmeddelelse
+            Console.WriteLine("Forkert brugernavn eller password.");
+
+        Console.ReadLine();
+    }
+}

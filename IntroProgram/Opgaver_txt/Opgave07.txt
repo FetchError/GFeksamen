@@ -1,0 +1,17 @@
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+
+{
+    // Der fejl i Console.WriteLine, da der er en parentes for meget efter skål
+
+Console.WriteLine("Der er mange {0} æbler i den {1} skål"), "røde", "blå");
+
+Console.ReadLine();
+
+}
+}
+
+

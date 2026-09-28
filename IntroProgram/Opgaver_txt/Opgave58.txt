@@ -1,0 +1,21 @@
+﻿//Jonathan Busk
+//Opgave 58
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string[] pets = { "hund", "kat", "fugl", "fisk", "kanin", "ulv", "ko", "gris" }; // Opretter et array med kæledyr
+
+        Array.Sort(pets); // Sorterer arrayet alfabetisk
+
+        foreach (string value in pets) // Løber alle elementer i arrayet igennem
+        {
+            Console.WriteLine("FOREACH ITEM: " + value); // Udskriver det nuværende element
+        }
+
+        Console.ReadKey();
+    }
+}

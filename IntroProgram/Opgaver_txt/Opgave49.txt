@@ -1,0 +1,24 @@
+﻿//Jonathan Busk
+//Opgave 49
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Indtast en tekst: "); // Beder brugeren om at skrive en tekst
+        string tekst = Console.ReadLine() ?? ""; // Gemmer teksten i variablen tekst
+
+        string omvendt = ""; // Opretter en tom streng til den omvendte tekst
+
+        for (int i = tekst.Length - 1; i >= 0; i--) // Løber teksten igennem bagfra
+        {
+            omvendt += tekst.Substring(i, 1); // Tilføjer det nuværende tegn til den omvendte streng
+        }
+
+        Console.WriteLine("Omvendt tekst: " + omvendt); // Udskriver den omvendte tekst
+
+        Console.ReadKey();
+    }
+}

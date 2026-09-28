@@ -1,0 +1,21 @@
+﻿//Jonathan Busk
+//Opgave 29
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        // For løkke som starter på 100, og tjekker på om i er højere eller lig 1, hvis det er det minuser den i med 1
+        for (int i = 100; i >= 1; i--)
+
+        {
+            // Udskriver tallene i
+            Console.Write(i + " ");
+        }
+
+        Console.ReadKey();
+    }
+}

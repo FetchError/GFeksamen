@@ -1,0 +1,54 @@
+﻿//Jonathan Busk
+//Opgave 39
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Deklaration af de rigtige loginoplysninger
+        string rigtigtBrugernavn = "admin";
+        string rigtigtPassword = "sikkerkode";
+        int forsøg = 0;
+        
+        string brugernavn;
+        string password;
+
+        do
+        {
+            // Spørger brugeren om loginoplysninger
+            Console.Write("Indtast brugernavn til Hotel Diablo: ");
+            brugernavn = Console.ReadLine();
+            // Spørger brugeren om password
+            Console.Write("Indtast password: ");
+            password = Console.ReadLine();
+ 
+            // Tilføjer 1 forsøg til variablen "forsøg" efter hvert forsøg
+            forsøg++;
+
+            // Tjekker for hvis brugernavn er lig med rigtigtBrugernavn og password er lig rigtigtPassword
+            if (brugernavn == rigtigtBrugernavn && password == rigtigtPassword)
+            {
+                // Udskriver så dette
+                Console.WriteLine("Velkommen til Hotel Diablo");
+            } 
+            else // Hvis ikke brugernavn og password er rigtigt
+            {
+                // Udskriver den dette, og tæller ned fra 5 forsøg af for at vise hvor mange forsøg brugeren har tilbage
+                Console.WriteLine("Forkert brugernavn eller password, du har " + (5-forsøg) + " tilbage");
+            }
+        
+        // Fortsætter med at spørger brugeren om loginoplysninger indtil brugernavn og password er rigtigt eller brugeren har brugt sine 5 forsøg
+        } while (!(brugernavn == rigtigtBrugernavn && password == rigtigtPassword) && forsøg < 5);
+
+        // Tjekker for hvis forsøg er 5 eller over, så udskriver den til brugereren at man har brugt for mange
+        if (forsøg >= 5)
+        {
+            Console.WriteLine("Du har brugt for mange forsøg");
+        }
+
+
+        Console.ReadLine();
+    }
+}

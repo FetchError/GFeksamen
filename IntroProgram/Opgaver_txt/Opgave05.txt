@@ -1,0 +1,31 @@
+﻿namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Metode til at finde midten
+        int midtX = Console.WindowWidth / 2;
+        int midtY = Console.WindowHeight / 2;
+
+    Console.SetCursorPosition(midtX, midtY);
+    Console.Write("Jonathan");
+    Console.SetCursorPosition(midtX, midtY + 1);
+    Console.Write("Busk");
+    Console.SetCursorPosition(midtX, midtY + 2);
+    Console.Write("Diget");
+    Console.SetCursorPosition(midtX, midtY + 3);
+    Console.Write("4300");
+    Console.SetCursorPosition(midtX, midtY + 4);
+    Console.Write("Holbæk");
+    Console.SetCursorPosition(midtX, midtY + 5);
+    Console.Write("MinMail@hotmail.com");
+    Console.SetCursorPosition(midtX, midtY + 6);
+    Console.Write("28609853");
+
+
+        Console.ReadKey();
+    }
+}
+
+

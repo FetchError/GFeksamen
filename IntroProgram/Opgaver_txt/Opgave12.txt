@@ -1,0 +1,31 @@
+﻿namespace IntroProgram
+{
+    class Program
+    {
+        static void Main(string[] args)
+    {
+        // initialisering af variabler
+        string euro, kurs;
+        double euro1, kurs1, dkk;
+
+        // indtast data
+        Console.Write(" Indtast beløb i EUR: ");
+
+        euro = Console.ReadLine();
+
+        euro1 = double.Parse(euro);
+
+        Console.Write(" Indtast kursen: ");
+        kurs = Console.ReadLine();
+        kurs1 = double.Parse(kurs);
+
+        // beregning
+        dkk = euro1 * (kurs1 / 100);
+
+        // resultatet i DKK
+        Console.WriteLine(" Når kursen er {0:N2}, får du {1:N2} DKK, når du veksler {2:N2} euro", kurs1, dkk, euro1);
+
+        Console.ReadKey();
+    }
+    }
+}

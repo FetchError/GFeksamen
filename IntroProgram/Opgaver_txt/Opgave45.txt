@@ -1,0 +1,70 @@
+﻿//Jonathan Busk
+//Opgave 45
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Deklaration af variabel til at gemme brugeren valg
+        string valg;
+
+        // Løkke der kører indtil brugeren trykker 9 for at afslutte
+        while (true)
+        {
+            // Udskriver menuen til brugeren 
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("================================");
+            Console.WriteLine("=== Cirkus Direktør System  ===");
+            Console.WriteLine("================================");
+            Console.ResetColor();
+            Console.WriteLine("1. Billetsalg");
+            Console.WriteLine("9. Afslut");
+            Console.Write("Vælg (1 eller 9): ");
+
+            // Læser brugeren valg
+            valg = Console.ReadLine();
+
+            // Tjekker hvad brugeren har valgt
+            switch (valg)
+            {
+                case "1":
+                    // Beder om antal billetter for hver sektion
+                    Console.Write("Antal billetter 1. Plads A+B (190 kr.): ");
+                    int plads = int.Parse(Console.ReadLine()!);
+                    Console.Write("Antal billetter Terrasse A+B (250 kr.): ");
+                    int terrasse = int.Parse(Console.ReadLine()!);
+                    Console.Write("Antal billetter Parket A+B   (280 kr.): ");
+                    int parket = int.Parse(Console.ReadLine()!);
+                    Console.Write("Antal billetter Midten       (320 kr.): ");
+                    int midten = int.Parse(Console.ReadLine()!);
+
+                    // Beregner total indtægt og antal gæster
+                    double total = (plads * 190) + (terrasse * 250) + (parket * 280) + (midten * 320);
+                    int gæster = plads + terrasse + parket + midten;
+
+                    // Udskriver resultatet med grøn farve
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Antal gæster: {gæster}");
+                    Console.WriteLine($"Samlet indtægt: {total} kr.");
+                    Console.ResetColor();
+                    break;
+
+                case "9":
+                    // Afslutter programmet hvis brugeren trykker 9
+                    Console.WriteLine("På gensyn!");
+                    return;
+
+                default:
+                    // Giver fejlbesked hvis brugeren ikke har tastet et gyldigt valg
+                    Console.WriteLine("Ugyldigt valg! Prøv igen");
+                    break;
+            }
+
+            // Venter på at brugeren trykker enter før menuen vises igen
+            Console.WriteLine("Tryk Enter for at fortsætte...");
+            Console.ReadLine();
+        }
+    }
+}

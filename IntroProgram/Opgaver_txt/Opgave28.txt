@@ -1,0 +1,21 @@
+//Jonathan Busk
+//Opgave 28
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+    // For løkke som starter på 1, og tjekker på om i er mindre eller lig 100, hvis det er det pluser den i med 1
+    for (int i = 1; i <= 100; i++)
+
+    {
+        // Udskriver tallene i
+        Console.Write(i + " ");
+    }
+
+    Console.ReadKey();
+    }
+}

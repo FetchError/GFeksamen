@@ -1,0 +1,32 @@
+﻿//Jonathan Busk
+//Opgave 36
+
+/// Programmet spørger bruger om et positivt tal
+/// Hvis brugeren så ikke indtaster et positivt tal ind, skal man så prøve igen indtil det er et positivt tal
+/// Når brugeren så indtaster et positivt tal, bliver der udskrevet "Data er godkendt"
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int tal;
+
+        do
+        {
+            Console.Write("Indtast et positivt tal: ");
+            tal = Convert.ToInt32(Console.ReadLine());
+
+            if (tal <= 0)
+            {
+                Console.WriteLine("Du skal taste et tal større end 0");
+                Console.Write("Tryk Enter");
+                Console.ReadKey();
+            }
+        } while (tal <= 0);
+
+        Console.Write("Data er godkendt");
+        Console.ReadKey();
+    }
+}

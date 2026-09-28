@@ -1,0 +1,27 @@
+﻿//Jonathan Busk
+//Opgave 50
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Indtast en tekst: "); // Beder brugeren om at skrive en tekst
+        string tekst = Console.ReadLine() ?? ""; // Gemmer teksten i variablen tekst
+
+        Console.Write("Indtast søgetekst: "); // Beder brugeren om at skrive den tekst der skal søges efter
+        string søgetekst = Console.ReadLine() ?? ""; // Gemmer søgeteksten i variablen søgetekst
+
+        if (tekst.Contains(søgetekst)) // Tjekker om søgeteksten findes i teksten
+        {
+            Console.WriteLine("Ja, teksten indeholder søgeteksten."); // Udskriver at søgeteksten blev fundet
+        }
+        else // Hvis søgeteksten ikke blev fundet
+        {
+            Console.WriteLine("Nej, teksten indeholder ikke søgeteksten."); // Udskriver at søgeteksten ikke blev fundet
+        }
+
+        Console.ReadKey();
+    }
+}

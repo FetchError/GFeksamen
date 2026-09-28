@@ -1,0 +1,60 @@
+﻿//Jonathan Busk
+//Opgave 41
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+
+    {
+
+        // Deklaration af variabel til at gemme brugerens tastetryk
+        string tast;
+
+        // Løkken kører indtil brugeren trykker 9 for at afslutte
+        while (true)
+        {
+            // Udskriver menuen til brugeren
+            Console.WriteLine("============");
+            Console.WriteLine("=== Menu ===");
+            Console.WriteLine("============");
+            Console.WriteLine("1. Vælg 1");
+            Console.WriteLine("2. Vælg 2");
+            Console.WriteLine("3. Vælg 3");
+            Console.WriteLine("9. Afslut");
+            Console.Write("Tryk på 1, 2, 3 eller 9: ");
+
+            // Læser brugerens input
+            tast = Console.ReadLine();
+
+            // Tjekker hvilken tast brugeren har trykket på
+            switch (tast)
+            {
+                case "1":
+                    Console.WriteLine("Du har trykket på 1 tast return");
+                    break;
+
+                case "2":
+                    Console.WriteLine("Du har trykket på 2 tast return");
+                    break;
+
+                case "3":
+                    Console.WriteLine("Du har trykket på 3 tast return");
+                    break;
+
+                case "9":
+                    // Afslutter programmet hvis brugeren trykker 9
+                    Console.WriteLine("Programmet afsluttes");
+                    return;
+
+                default:
+                    // Fejlbesked udskrives hvis brugeren ikke har tastet 9
+                    if (tast != "9")
+                        Console.WriteLine("Du har ikke tastet 1, 2, 3 eller 9 - prøv igen");
+                    break;
+            }
+        }
+        Console.ReadKey();
+    }
+}

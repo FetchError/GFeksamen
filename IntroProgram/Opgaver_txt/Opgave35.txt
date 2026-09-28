@@ -1,0 +1,77 @@
+﻿//Jonathan Busk
+//Opgave 35
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Random objekt til at generere tilfældige tal
+        Random RandomObj = new Random();
+
+        // Variabler til at holde styr på kast, antal kast og antal 1'ere og 2'ere
+        int kast;
+        int antal_kast = 0;
+        
+        int antal_1 = 0;
+        int antal_2 = 0;
+        int antal_3 = 0;
+        int antal_4 = 0;
+        int antal_5 = 0;
+        int antal_6 = 0;
+
+        // Loop der kaster terningen indtil den har kastet 1000 gange
+        do
+        {
+            // Generer et tilfældigt tal mellem 1 og 6
+            kast = RandomObj.Next(1, 7);
+
+            // Tjekker for om terningen kaster en 1'er
+            if (kast == 1)
+            {
+                // Hvis den gør, bliver +1 gemt i antal_1
+                antal_1++;
+            }
+             // Tjekker for om terningen kaster en 2'er
+            else if (kast == 2)
+            {
+                // Hvis den gør, bliver +1 gemt i antal_2
+                antal_2++;
+            } 
+            // Tjekker for om terningen kaster en 3'er
+            else if (kast == 3)
+            {
+                // Hvis den gør, bliver +1 gemt i antal_3
+                antal_3++;
+            }
+            // Tjekker for om terningen kaster en 4'er
+            else if (kast == 4)
+            {
+                // Hvis den gør, bliver +1 gemt i antal_4
+                antal_4++;
+            }
+            // Tjekker for om terningen kaster en 5'er
+            else if (kast == 5)
+            {
+                // Hvis den gør, bliver +1 gemt i antal_5
+                antal_5++;
+            }
+            // Tjekker for om terningen kaster en 6'er
+            else if (kast == 6)
+            {
+                // Hvis den gør, bliver +1 gemt i antal_6
+                antal_6++;
+            }
+            // Pluser med 1 efter hvert kast
+            antal_kast ++;
+        }
+        // Fortsæt loopet indtil antal kast er højere end 100
+        while (antal_kast < 1000);
+
+        // Udskriv resultatet af kastet
+        Console.WriteLine("Antal 1'ere: {0}, Antal 2'ere: {1}, Antal 3'ere: {2}, Antal 4'ere: {3}, Antal 5'ere: {4}, Antal 6'ere: {5}", antal_1, antal_2, antal_3, antal_4, antal_5, antal_6);
+
+        Console.ReadKey();
+    }
+}

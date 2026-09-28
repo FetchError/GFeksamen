@@ -1,0 +1,79 @@
+﻿//Jonathan Busk
+//Opgave 25
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Byder brugeren velkommen 
+        Console.WriteLine("Velkommen til Hotel Diablo");
+        // Spørger bruger om hvor mange enkeltværelser man vil booke
+        Console.Write("Hvor mange enkeltværelser vil du booke: ");
+        //Konverter brugeren input til int og gemmer det i en variabel
+        int enkeltværelser = Convert.ToInt32(Console.ReadLine());
+        // Spørger bruger om hvor mange dage man vil booke enkeltværelser
+        Console.Write("Hvor mange dage vil du booke enkeltværelserne: ");
+        //Konverter bruger input til int og gemmer det i en variabel
+        int enkelt_dage = Convert.ToInt32(Console.ReadLine());
+
+        // Spørger bruger om hvor mange dobbelværelser man vil booke
+        Console.Write("Hvor mange dobbeltværelser vil du booke: ");
+        //Konverter bruger input til int og gemmer det i en variabel
+        int dobbeltværelser = Convert.ToInt32(Console.ReadLine());
+        // Spørger bruger om hvor mange dage man vil booke dobbeltværelser
+        Console.Write("Hvor mange dage vil du booke dobbeltværelserne: ");
+        //Konverter bruger input til int og gemmer det i en variabel
+        int dobbelt_dage = Convert.ToInt32(Console.ReadLine());
+
+        // Sprøger bruger om hvor mange familieværelser man vil booke
+        Console.Write("Hvor mange familieværelser vil du booke: ");
+        //Konverter bruger input til int og gemmer det i en variabel
+        int familieværelser = Convert.ToInt32(Console.ReadLine());
+        // Spørger bruger om hvor mange dage man vil booke familieværelser
+        Console.Write("Hvor mange dage vil du booke familieværelserne: ");
+        //Konverter bruger input til int og gemmer det i en variabel
+        int familie_dage = Convert.ToInt32(Console.ReadLine());
+
+        // Beregner den samlede pris i dkk for alle værelser og dage
+        int total_dkk = (enkeltværelser * 765 * enkelt_dage)
+                      + (dobbeltværelser * 980 * dobbelt_dage)
+                      + (familieværelser * 1250 * familie_dage);
+            // Konverter dkk til eur 
+            double total_eur = total_dkk / 7.46;
+
+            // Spørger bruger hvilken valuta de vil betale i
+            Console.WriteLine("Vil du betale i DKK, eller i EUR? ");
+
+            // Tager brugeren input, laver det til små bagstaver og gemmer det
+            string valuta = Console.ReadLine().ToLower();
+
+            // Tjekker for hvis brugeren har skrevet dkk
+            if (valuta == "dkk")
+        {
+            // Udskriver den fulde bestilling af bookningen, med antal, type og dage man har booket
+            Console.WriteLine($"Tak for din bestilling");
+            Console.WriteLine($"Du har booket: {enkeltværelser} enkeltværelse(r) i {enkelt_dage} dage, {dobbeltværelser} dobbeltværelse(r) i {dobbelt_dage} dage, {familieværelser} familieværelse(r) i {familie_dage} dage");
+            // Udskriver prisen i DKK
+            Console.WriteLine($"Totalpris: {total_dkk} DKK");
+        }
+        // Tjekker for om brugeren skriver eur
+        else if (valuta == "eur")
+        {
+            // Udskriver den fulde bestilling af bookningen, med antal, type og dage man har booket
+            Console.WriteLine($"Tak for din bestilling");
+            Console.WriteLine($"Du har booket: {enkeltværelser} enkeltværelse(r) i {enkelt_dage} dage, {dobbeltværelser} dobbeltværelse(r) i {dobbelt_dage} dage, {familieværelser} familieværelse(r) i {familie_dage} dage");
+            // Udskriver samlet pris i eur
+            Console.WriteLine($"Totalpris: {total_eur:F2} EUR");
+        }
+        // Hvis ingen af disse statements er sande, så bliver dette udskrevet
+        else
+        {
+            // Hvis bruger hverken skriver dkk eller eur bliver der udskrevet dette
+            Console.WriteLine("Ugydig valuta");
+        }
+
+        Console.ReadKey();
+    }
+}

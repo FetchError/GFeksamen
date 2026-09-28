@@ -1,0 +1,11 @@
+﻿namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("{0} medbringer {1}. {2} medbringer {3} {4}, {5} medbringer {6} {7} og {8} medbringer {9}", "Allan", "brød", "Per","3", "tomater", "Lise", "5", "æbler", "Kim", "2 bananer");
+
+        Console.ReadLine();
+    }
+}

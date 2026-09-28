@@ -1,0 +1,19 @@
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Jonathan");
+        Console.WriteLine("Busk");
+        Console.WriteLine("Diget");
+        Console.WriteLine("4300");
+        Console.WriteLine("Holbæk");
+        Console.WriteLine("MinMail@hotmail.com");
+        Console.WriteLine("28609853");
+
+        Console.ReadKey();
+    }
+}
+
+

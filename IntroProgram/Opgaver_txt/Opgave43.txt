@@ -1,0 +1,105 @@
+﻿//Jonathan Busk
+//Opgave 43
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Benytter single source of truth. Sådan så disse variabler kun skal ændres et sted, hvis de skal ændres
+        string cola = "Cola";
+        string pepsi_max = "Pepsi Max";
+        string vand = "Vand";
+        string kakao = "Kakao";
+        string kaffe = "Kaffe";
+
+        // Sætter prisen på de drinks der er på menuen 
+        int cola_pris = 23;
+        int pepsi_max_pris = 25;
+        int vand_pris = 15;
+        int kakao_pris = 20;
+        int kaffe_pris = 12;
+        
+        // Variabel til at holde styr på den løbende totalpris på drinks
+        int total = 0;
+        // Variabel til at gemme de valg af drink som brugeren 
+        string drink_valg;
+        // Variabel til at gemme antal af drinks der bliver valgt
+        int antal = 0;
+        
+        // Variabel til kontrol af do-while løkkens betingelse som gør den fortsætter
+        string fortsæt = "n";
+
+        do
+        { // Output menukort som string interpolation
+            Console.WriteLine(" ");
+            Console.WriteLine("     Drinks Menu     ");
+            Console.WriteLine(" ");
+            Console.WriteLine($"1. {cola}      {cola_pris} kr");
+            Console.WriteLine($"2. {pepsi_max} {pepsi_max_pris} kr");
+            Console.WriteLine($"3. {vand}      {vand_pris} kr");
+            Console.WriteLine($"4. {kakao}     {kakao_pris} kr");
+            Console.WriteLine($"5. {kaffe}     {kaffe_pris} kr");
+            Console.WriteLine(" ");
+            Console.WriteLine("Hvilke drinks kunne du tænke dig?");
+
+            // Læser brugerens input og gemmer det som string
+            drink_valg = Console.ReadLine();
+
+            // Tjekker om brugeren har tastet "1" for cola
+            if (drink_valg == "1")
+            {
+                 // Udskriver navn og pris på drink ved hjælp af string interpolation
+                Console.WriteLine($"{cola} - {cola_pris} kr");
+                    Console.Write($"Hvor mange {cola} vil du købe? ");
+                    // Parser string input til int
+                    antal = int.Parse(Console.ReadLine()); 
+                    // Ganger prisen med antal og lægger det til total (bruger operator +=)
+                    total += cola_pris * antal;
+            } else if (drink_valg == "2")
+            {
+                 Console.WriteLine($"{pepsi_max} - {pepsi_max_pris} kr");
+                    Console.Write($"Hvor mange {pepsi_max} vil du købe? ");
+                    antal = int.Parse(Console.ReadLine());
+                    total += pepsi_max_pris * antal;
+
+            } else if (drink_valg == "3")
+            {
+                 Console.WriteLine($"{vand} - {vand_pris} kr");
+                    Console.Write($"Hvor mange {vand} vil du købe? ");
+                    antal = int.Parse(Console.ReadLine());
+                    total += vand_pris * antal;
+            } else if (drink_valg == "4")
+            {
+                Console.WriteLine($"{kakao} - {kakao_pris} kr");
+                    Console.Write($"Hvor mange {kakao} vil du købe? ");
+                    antal = int.Parse(Console.ReadLine());
+                    total += kakao_pris * antal;
+            } else if (drink_valg == "5")
+            {
+                Console.WriteLine($"{kaffe} - {kaffe_pris} kr");
+                Console.Write($"Hvor mange {kaffe} vil du købe? ");
+                antal = int.Parse(Console.ReadLine());
+                total += kaffe_pris * antal;
+            } else // Hvis brugeren ikke indtaster et drink nummer som er gydigt, så bliver dette udskrevet 
+            {
+                 Console.WriteLine("Den valgte drink findes ikke på menukortet, prøv igen.");
+            }
+
+            // Sprøger brugeren om de er færdige med at bestille
+            Console.WriteLine("Var det alt? (j/n)");
+            // Læser brugerens svar og gemmer det i den kontrol variablen som står på linje 32
+            fortsæt = Console.ReadLine();
+        
+         // Løkken gentager så længe fortsæt ikke er lig "j", så hvis brugeren skriver n 
+        } while (fortsæt != "j");
+
+        Console.WriteLine("Tak for din bestilling!");
+        Console.WriteLine($"Total prisen er: {total}kr");
+
+
+
+        Console.ReadLine();
+    }
+}

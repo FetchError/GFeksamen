@@ -1,0 +1,37 @@
+﻿//Jonathan Busk
+//Opgave 37
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Deklarer variabler og initialiser dem
+        string rigtigBy = "faaborg";
+        string gæt;
+        int antalGæt = 0;
+
+        do
+        {
+            // Spørger brugeren om at gætte en by på Fyn
+            Console.Write("Indtast en by på Fyn: ");
+            // Læser brugerens gæt og øger antallet af gæt med 1
+            gæt = Console.ReadLine().ToLower();
+            antalGæt++;
+
+            // Tjekker på om brugerens gæt er forskelligt fra Faaborg som er det rigtigt svar
+            if (gæt != rigtigBy)
+            {   // Hvis brugeren ikke skriver faaborg så bliver dette udskrevet
+                Console.WriteLine("Forkert svar, prøv igen!");
+            }
+
+        }
+        // Fortsætter løkken indtil brugeren gætter rigtigt 
+        while (gæt != rigtigBy);
+
+        // Hvis brugeren skriver faaborg, udskriver dem at det er rigtigt, og antal af gæt
+        Console.WriteLine("Dette er rigtigt! Det tog {0} gæt", antalGæt);
+        Console.ReadKey();
+    }
+}

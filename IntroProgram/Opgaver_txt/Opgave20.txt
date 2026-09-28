@@ -1,0 +1,46 @@
+//Jonathan Busk
+//Opgave 20
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Deklarere variabel
+        int tal_1;
+
+        //Spørger brugeren om et tal
+        Console.Write("Indtast et tal ");
+
+        //Tager stregen og konvertere det til et tal
+        tal_1 = int.Parse(Console.ReadLine()!);
+
+        //Deklarere variabel
+        int tal_2; 
+
+        //Spørger brugeren om et andet tal
+        Console.Write("Indtast et andet tal ");
+
+        //Tager stregen og konvertere det til et tal
+        tal_2 = int.Parse(Console.ReadLine()!);
+
+        //Tjekker om første tal er større end andet tal
+        if (tal_1 > tal_2)
+        {   //Hvis det er true, så bliver dette udskrevet
+            Console.WriteLine($"{tal_1} " + "er større end " + $"{tal_2}");
+        }   //Tjekker om andet tal er større end første tal
+        else if(tal_2 > tal_1)
+        {   //Hvis det er true, så bliver dette udskrevet
+            Console.WriteLine($"{tal_2} " + "er større end " + $"{tal_1}");
+        }
+        else
+        {
+            // Hvis tallene er ens udskriver den dette
+            Console.WriteLine("Tallene er ens");
+        }
+
+        Console.ReadKey();
+    }
+}

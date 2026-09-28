@@ -1,0 +1,32 @@
+﻿//Jonathan Busk
+//Opgave 21
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Velkommen besked til bruger
+        Console.WriteLine("Velkommen til foreningens medlemsdatabase!");
+        //Spørger brugeren om man er medlem eller ej
+        Console.WriteLine("Er du medlem? (j/n)");
+
+        //Læser brugerens svar og konverterer det til små bogstaver
+        string svaret = Console.ReadLine().ToLower();
+        
+        //Tjekker om svaret er "j", og giver rabat hvis det er true
+        if (svaret == "j")
+        {
+            //Giver rabat til medlemmer
+            Console.WriteLine("Du får 10% i rabat");
+        }
+        else
+        {   //Giver besked til ikke-medlemmer
+            Console.WriteLine("Du får ikke rabat, da du ikke er medlem");
+        }
+
+        Console.ReadKey();
+    }
+}

@@ -1,0 +1,42 @@
+﻿//Jonathan Busk
+//Opgave 22 (Hovedopgave 2)
+
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {   // Byder brugeren velkommen
+        Console.WriteLine("Velkommen til Kino Biograf!");
+        // Spørger brugeren om deres alder
+        Console.Write("Indtast din alder: ");
+
+        // Konverterer brugerens input til et heltal
+        int alder = Convert.ToInt32(Console.ReadLine());
+
+        // Tjekker om brugeren har en negativ alder
+        if (alder < 0)
+        {   // Hvis alderen er negativ, udskrives en besked til bruger at den ikke må være negativ
+            Console.WriteLine("Du kan ikke have en negativ alder");
+        }
+        // Tjekker om brugeren er under 18
+        if (alder >= 0 && alder < 18)
+        {   // Hvis alderen er under 18, udskrives denne besked til brugeren
+            Console.WriteLine("Pris på billet: 45 DKK");
+        }
+        // Tjekker om brugeren er mellem 18 og 65
+        if (alder >= 18 && alder < 66)
+        {   // Hvis alderen er mellem 18 og 65, udskrives denne besked til brugeren
+            Console.WriteLine("Pris på billet: 75 DKK");
+        }
+        // Tjekker om brugeren er 66 eller over
+        if (alder >= 66)
+        {   // Hvis alderen er 66 eller over, udskrives denne besked til brugeren
+            Console.WriteLine("Pris på billet: 35 DKK");
+        }
+
+
+        Console.ReadKey();
+    }
+}

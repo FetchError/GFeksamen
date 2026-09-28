@@ -1,0 +1,27 @@
+﻿//Jonathan Busk
+//Opgave 48
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Indtast en tekst: "); // Beder brugeren om at skrive en tekst
+        string tekst = Console.ReadLine() ?? ""; // Gemmer teksten i variablen tekst
+
+        string udenMellemrum = ""; // Opretter en tom streng til teksten uden mellemrum
+
+        for (int i = 0; i < tekst.Length; i++) // Løber alle tegn i teksten igennem
+        {
+            if (tekst.Substring(i, 1) != " ") // Tjekker om det nuværende tegn ikke er et mellemrum
+            {
+                udenMellemrum = udenMellemrum + tekst.Substring(i, 1); // Tilføjer det nuværende tegn til udenMellemrum, hvis det ikke er et mellemrum
+            }
+        }
+
+        Console.WriteLine("Tekst uden mellemrum: " + udenMellemrum); // Udskriver teksten uden mellemrum
+
+        Console.ReadKey();
+    }
+}

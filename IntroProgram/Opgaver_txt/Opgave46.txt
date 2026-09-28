@@ -1,0 +1,153 @@
+﻿//Jonathan Busk
+//Opgave 46 
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Priser for enkeltbilletter
+        int voksen_enkelt = 42;
+        int rabat_enkelt = 23;
+        int barn_under_7_enkelt = 0;
+        int barn_7_15_enkelt = 15;
+        int skoleferie_enkelt = 10;
+
+        // Priser for 10 turskort
+        int voksen_10tur = 330;
+        int rabat_10tur = 175;
+        int barn_7_15_10tur = 135;
+
+        // Variabler til valg, antal og priser
+        int total = 0;
+        int antal = 0;
+        string billettype_valg;
+        string kategori_valg;
+        string fortsæt = "n";
+
+        Console.WriteLine("Velkommen til Ballerup Svømmehal");
+
+        do
+        {
+            // Udskriver billet menu
+            Console.WriteLine(" ");
+            Console.WriteLine("Vælg billettype:");
+            Console.WriteLine(" ");
+            Console.WriteLine("1. Enkeltbillet");
+            Console.WriteLine("2. 10-turskort");
+            Console.WriteLine(" ");
+            Console.WriteLine("Hvilken billettype ønsker du?");
+
+            billettype_valg = Console.ReadLine();
+
+            // Tjekker for om billettype er lig "1"
+            if (billettype_valg == "1")
+            {   // Udskriver kategorier og sætter pris ud fra valgt billettype
+                Console.WriteLine(" ");
+                Console.WriteLine("Vælg kategori:");
+                Console.WriteLine(" ");
+                Console.WriteLine($"1. Voksen                                                                             {voksen_enkelt} kr");
+                Console.WriteLine($"2. Pensionist/studerende/arbejdsledig/ledighedsydelse/dagpengemodtagere og studerende {rabat_enkelt} kr");
+                Console.WriteLine($"3. Barn under 7 år (følges med voksen)                                                {barn_under_7_enkelt} kr");
+                Console.WriteLine($"4. Barn 7-15 år                                                                       {barn_7_15_enkelt} kr");
+                Console.WriteLine($"5. Barn 7-15 år (skoleferiebillet)                                                    {skoleferie_enkelt} kr");
+                Console.WriteLine(" ");
+                Console.WriteLine("Hvilken kategori tilhører du?");
+
+                // Læser og gemmer brugerens valg af kategori som string
+                kategori_valg = Console.ReadLine();
+
+                switch (kategori_valg)
+                {
+                    case "1": // Matcher med input fra brugeren som er lig "1"
+                        Console.WriteLine($"Voksen (enkeltbillet) - {voksen_enkelt} kr"); // Viser type og pris på brugeren valg
+                        Console.Write("Hvor mange billetter vil du købe? "); // Spørger bruger om antal biletter 
+                        antal = int.Parse(Console.ReadLine()); // Parser string input til int med parse
+                        total += voksen_enkelt * antal; // Tilføjer billet prisen og ganger det med antal
+                        break; // Stopper koden med at forsætte ned i næste case
+
+                    case "2":
+                        Console.WriteLine($"Rabat-kategori (enkeltbillet) - {rabat_enkelt} kr");
+                        Console.Write("Hvor mange billetter vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += rabat_enkelt * antal;
+                        break;
+                    case "3":
+                        Console.WriteLine($"Barn under 7 år (gratis) - {barn_under_7_enkelt} kr");
+                        Console.Write("Hvor mange billetter vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += barn_under_7_enkelt * antal;
+                        break;
+                    case "4":
+                        Console.WriteLine($"Barn 7-15 år (enkeltbillet) - {barn_7_15_enkelt} kr");
+                        Console.Write("Hvor mange billetter vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += barn_7_15_enkelt * antal;
+                        break;
+                    case "5":
+                        Console.WriteLine($"Barn 7-15 år (skoleferiebillet) - {skoleferie_enkelt} kr");
+                        Console.Write("Hvor mange billetter vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += skoleferie_enkelt * antal;
+                        break;
+                    default: // Ellers hvis ingen af de hardkodet valgmuligheder bliver indtastet så udskrives dette
+                        Console.WriteLine("Den valgte kategori findes ikke, prøv igen.");
+                        break;
+                }
+            }
+            else if (billettype_valg == "2") // Tjekker for om brugeren indtaster "2" for billettype
+            {
+                // Så vises denne menu
+                Console.WriteLine(" ");
+                Console.WriteLine("Vælg kategori:");
+                Console.WriteLine(" ");
+                Console.WriteLine($"1. Voksen                                                                                {voksen_10tur} kr");
+                Console.WriteLine($"2. Pensionist/studerende/arbejdsledig/ledighedsydelse/dagpengemodtagere og studerende    {rabat_10tur} kr");
+                Console.WriteLine($"3. Barn 7-15 år                                                                          {barn_7_15_10tur} kr");
+                Console.WriteLine(" ");
+                Console.WriteLine("Hvilken kategori tilhører du?");
+
+                kategori_valg = Console.ReadLine();
+                // Switch case til at matche brugerens input med de forskellige kategorier
+                switch (kategori_valg)
+                {
+                    case "1":
+                        Console.WriteLine($"Voksen (10-turskort) - {voksen_10tur} kr");
+                        Console.Write("Hvor mange kort vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += voksen_10tur * antal;
+                        break;
+                    case "2":
+                        Console.WriteLine($"Rabat-kategori (10-turskort) - {rabat_10tur} kr");
+                        Console.Write("Hvor mange kort vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += rabat_10tur * antal;
+                        break;
+                    case "3":
+                        Console.WriteLine($"Barn 7-15 år (10-turskort) - {barn_7_15_10tur} kr");
+                        Console.Write("Hvor mange kort vil du købe? ");
+                        antal = int.Parse(Console.ReadLine());
+                        total += barn_7_15_10tur * antal;
+                        break;
+                    default:
+                        Console.WriteLine("Den valgte kategori findes ikke, prøv igen.");
+                        break;
+                }
+            }
+            else //Hvis brugeren indtaster et ugydig tal for billettypen, så udskriver den dette
+            {
+                Console.WriteLine("Den valgte billettype findes ikke på menuen, prøv igen.");
+            }
+            // Spørger brugeren om det var alt i bestillingen
+            Console.WriteLine("Var det alt? (j/n)"); // Fortsætter løkken så længe brugeren ikke taster "j" 
+            fortsæt = Console.ReadLine();
+
+        } while (fortsæt != "j");
+
+        Console.WriteLine("Tak for dit køb!");
+        Console.WriteLine($"Total prisen er: {total} kr");
+
+        Console.ReadLine();
+    }
+}

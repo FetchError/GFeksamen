@@ -1,0 +1,31 @@
+﻿//Jonathan Busk
+//Opgave 47
+
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Indtast første tekst: "); // Beder brugeren om at skrive en tekst
+        string tekst1 = Console.ReadLine() ?? ""; // Gemmer den første tekst i variablen tekst1 og sikre null exception 
+
+        Console.Write("Indtast anden tekst: "); // Beder brugeren om at skrive en ny tekst
+        string tekst2 = Console.ReadLine() ?? ""; // Gemmer den anden tekst i variablen tekst2 og sikre null exception 
+
+        if (tekst1.Length > tekst2.Length) // Tjekker om den første tekst er længere end den anden
+        {
+            Console.WriteLine("Den første tekst er længst."); // Udskriver at første tekst er længst
+        }
+        else if (tekst2.Length > tekst1.Length) // Tjekker om den anden tekst er længere end den første
+        {
+            Console.WriteLine("Den anden tekst er længst."); // Udskriver at anden tekst er længst
+        }
+        else // Hvis ingen af betingelserne er opfyldt, er teksterne lige lange
+        {
+            Console.WriteLine("Teksterne er lige lange."); // Udskriver at teksterne er lige lange
+        }
+
+        Console.ReadKey();
+    }
+}

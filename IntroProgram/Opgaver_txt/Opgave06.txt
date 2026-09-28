@@ -1,0 +1,14 @@
+namespace IntroProgram;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("¡“§ñ≠[¶™∞£§“‚·–@'~;:_!¾, ® ©%&/()=?`");
+
+
+        Console.ReadKey();
+    }
+}
+
+
