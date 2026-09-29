@@ -21,6 +21,9 @@ class Program
     static int linjerPrSide = 14;
 
     // Parallelle arrays - bruger nummer i ligger på plads i i alle arrays
+
+    // Array med plads til 100 telefonnumre (maksBrugere) - én plads pr. bruger.
+    // static betyder, at alle metoder i programmet kan bruge det samme array.
     static string[] telefoner = new string[maksBrugere];
     static string[] fornavne = new string[maksBrugere];
     static string[] efternavne = new string[maksBrugere];
@@ -462,7 +465,7 @@ class Program
     // Viser alle oprettede brugere
     static void ShowAllUsers()
     {
-        // Array med pladsen på alle brugere: 0, 1, 2, 3 ...
+        // Array med pladsen på alle brugere: 0, 1, 2, 3 (Starter på 0)
         int[] alle = new int[antalBrugere];
 
         for (int i = 0; i < antalBrugere; i++)
