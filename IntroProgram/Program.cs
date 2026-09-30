@@ -386,7 +386,7 @@ class Program // Klassen der indeholder hele programmet
 
         while (iAdminMenu) // Kører indtil admin vælger 9
         {
-            ShowHeader("Admin-menu"); // Rydder skærmen og viser titel
+            ShowHeader("Admin menu"); // Rydder skærmen og viser titel
             Console.WriteLine("1. Find bruger"); // Menupunkt 1
             Console.WriteLine("2. Vis alle brugere"); // Menupunkt 2
             Console.WriteLine("3. Vis gennemsnitsalder"); // Menupunkt 3
@@ -581,13 +581,14 @@ class Program // Klassen der indeholder hele programmet
     }
 
     // Rydder skærmen og viser en overskrift i farve
+    // Genadvenlig til alle titler ved at bruge ShowHeader metoden
     static void ShowHeader(string titel) // titel = teksten i overskriften
     {
         Console.Clear(); // Rydder konsollen
         Console.ForegroundColor = ConsoleColor.Blue; // Skifter tekstfarve til blå
-        Console.WriteLine("=================================================="); // Streg over titlen
+        Console.WriteLine("================================="); // Streg over titlen
         Console.WriteLine(" " + titel); // Selve titlen
-        Console.WriteLine("=================================================="); // Streg under titlen
+        Console.WriteLine("================================="); // Streg under titlen
         Console.ResetColor(); // Sætter farven tilbage til normal
         Console.WriteLine(" "); // Tom linje
     }
