@@ -106,7 +106,7 @@ class Program // Klassen der indeholder hele programmet
         }
         else // Der er plads
         {
-            string telefon = InputPhone(); // Beder om et gyldigt telefonnummer
+            string telefon = InputPhone(); // Læser telefonnummer
 
             // Tjekker om telefonnummeret findes i forvejen
             if (FindPhoneIndex(telefon) != -1) // -1 betyder "ikke fundet"
@@ -118,14 +118,14 @@ class Program // Klassen der indeholder hele programmet
                 Console.WriteLine("Nummeret er ledigt - udfyld resten af oplysningerne:"); // Besked til brugeren
                 Console.WriteLine(" "); // Tom linje
 
-                // Spørger om alle oplysninger - hver metode tjekker selv inputtet
-                string fornavn = InputText("Fornavn: "); // Må ikke være tomt
-                string efternavn = InputText("Efternavn: "); // Må ikke være tomt
-                int alder = InputNumber("Alder: ", 1, 120); // Tal mellem 1 og 120
-                string adresse = InputText("Adresse: "); // Må ikke være tomt
-                int postnummer = InputNumber("Postnummer (4 cifre): ", 1000, 9999); // Tal mellem 1000 og 9999
-                string by = InputText("By: "); // Må ikke være tomt
-                string email = InputEmail(); // Skal indeholde @ og punktum
+                // Spørger om alle oplysninger
+                string fornavn = InputText("Fornavn: "); // Læser fornavn
+                string efternavn = InputText("Efternavn: "); // Læser efternavn
+                int alder = InputNumber("Alder: "); // Læser alder
+                string adresse = InputText("Adresse: "); // Læser adresse
+                int postnummer = InputNumber("Postnummer (4 cifre): "); // Læser postnummer
+                string by = InputText("By: "); // Læser by
+                string email = InputEmail(); // Læser e-mail
                 int frekvens = InputFrequency(); // 12, 4 eller 1
 
                 // Gemmer brugeren i arrays
@@ -179,165 +179,49 @@ class Program // Klassen der indeholder hele programmet
 
     // Bruger input
 
-    // Tjekker om en tekst kun består af cifre (0-9)
-    static bool IsOnlyDigits(string tekst) // Returnerer true eller false
-    {
-        string cifre = "0123456789"; // De tegn der er tilladt
-
-        // En tom tekst er ikke et tal
-        bool kunTal = tekst.Length > 0; // false hvis teksten er tom
-
-        // Tjekker tegn for tegn om det er et ciffer
-        for (int i = 0; i < tekst.Length; i++) // Løber hvert tegn igennem
-        {
-            if (!cifre.Contains(tekst.Substring(i, 1))) // Tegnet findes ikke blandt cifrene
-            {
-                kunTal = false; // Så er teksten ikke kun tal
-            }
-        }
-
-        return kunTal; // Sender resultatet tilbage
-    }
-
-    // Spørger om en tekst indtil brugeren har skrevet noget
+    // Spørger om en tekst og returnerer svaret
     static string InputText(string spørgsmål) // spørgsmål er teksten der vises
     {
-        string svar = ""; // Her gemmes brugerens svar
-        bool gyldig = false; // Bliver true når svaret er godkendt
-
-        while (!gyldig) // Spørger igen indtil svaret er gyldigt
-        {
-            Console.Write(spørgsmål); // Viser spørgsmålet
-            svar = Console.ReadLine() ?? ""; // Læser svaret (tom tekst hvis null)
-
-            if (svar == "") // Brugeren skrev ingenting
-            {
-                ShowError("Feltet må ikke være tomt - prøv igen"); // Fejlbesked
-            }
-            else // Der er skrevet noget
-            {
-                gyldig = true; // Stopper løkken
-            }
-        }
-
+        Console.Write(spørgsmål); // Viser spørgsmålet
+        string svar = Console.ReadLine() ?? ""; // Læser svaret (tom tekst hvis null)
         return svar; // Sender svaret tilbage
     }
 
-    // Spørger om et heltal indtil det er et tal mellem min og max
-    static int InputNumber(string spørgsmål, int min, int max) // min og max er grænserne
+    // Spørger om et heltal og returnerer det
+    static int InputNumber(string spørgsmål) // spørgsmål er teksten der vises
     {
-        int tal = 0; // Her gemmes tallet
-        bool gyldig = false; // Bliver true når tallet er godkendt
-
-        while (!gyldig) // Spørger igen indtil tallet er gyldigt
-        {
-            Console.Write(spørgsmål); // Viser spørgsmålet
-            string svar = Console.ReadLine() ?? ""; // Læser svaret som tekst
-
-            // Tjekker først at der kun er cifre, så int.Parse ikke crasher
-            if (!IsOnlyDigits(svar)) // Indeholder andet end cifre
-            {
-                ShowError("Du skal skrive et tal (kun cifre) - prøv igen"); // Fejlbesked
-            }
-            // Et tal med mere end 9 cifre er for stort til en int
-            else if (svar.Length > 9) // For mange cifre
-            {
-                ShowError("Tallet er for stort - prøv igen"); // Fejlbesked
-            }
-            else // Teksten er et gyldigt tal
-            {
-                tal = int.Parse(svar); // Laver teksten om til et heltal
-
-                // Tjekker at tallet er inden for grænserne
-                if (tal < min || tal > max) // For lille eller for stort
-                {
-                    ShowError($"Tallet skal være mellem {min} og {max} - prøv igen"); // Fejlbesked med grænserne
-                }
-                else // Tallet er inden for grænserne
-                {
-                    gyldig = true; // Stopper løkken
-                }
-            }
-        }
-
+        Console.Write(spørgsmål); // Viser spørgsmålet
+        string svar = Console.ReadLine() ?? ""; // Læser svaret som tekst
+        int tal = int.Parse(svar); // Laver teksten om til et heltal
         return tal; // Sender tallet tilbage
     }
 
-    // Spørger om et telefonnummer indtil det er præcis 8 cifre
+    // Spørger om et telefonnummer og returnerer det
     static string InputPhone() // Returnerer nummeret som tekst
     {
-        string telefon = ""; // Her gemmes nummeret
-        bool gyldig = false; // Bliver true når nummeret er godkendt
-
-        while (!gyldig) // Spørger igen indtil nummeret er gyldigt
-        {
-            Console.Write("Indtast telefonnummer (8 cifre): "); // Viser spørgsmålet
-            telefon = Console.ReadLine() ?? ""; // Læser nummeret
-
-            if (telefon.Length != 8 || !IsOnlyDigits(telefon)) // Ikke 8 tegn, eller ikke kun cifre
-            {
-                ShowError("Telefonnummeret skal være præcis 8 cifre, f.eks. 12345678"); // Fejlbesked
-            }
-            else // Nummeret er gyldigt
-            {
-                gyldig = true; // Stopper løkken
-            }
-        }
-
+        Console.Write("Indtast telefonnummer (8 cifre): "); // Viser spørgsmålet
+        string telefon = Console.ReadLine() ?? ""; // Læser nummeret
         return telefon; // Sender nummeret tilbage
     }
 
-    // Spørger om en e-mail indtil den indeholder @ og punktum og ingen mellemrum
+    // Spørger om en e-mail og returnerer den
     static string InputEmail() // Returnerer e-mailen som tekst
     {
-        string email = ""; // Her gemmes e-mailen
-        bool gyldig = false; // Bliver true når e-mailen er godkendt
-
-        while (!gyldig) // Spørger igen indtil e-mailen er gyldig
-        {
-            Console.Write("E-mail: "); // Viser spørgsmålet
-            email = Console.ReadLine() ?? ""; // Læser e-mailen
-
-            if (!email.Contains("@") || !email.Contains(".") || email.Contains(" ")) // Mangler @ eller punktum, eller har mellemrum
-            {
-                ShowError("Ugyldig e-mail - den skal f.eks. se sådan ud: navn@mail.dk"); // Fejlbesked med eksempel
-            }
-            else // E-mailen er gyldig
-            {
-                gyldig = true; // Stopper løkken
-            }
-        }
-
+        Console.Write("E-mail: "); // Viser spørgsmålet
+        string email = Console.ReadLine() ?? ""; // Læser e-mailen
         return email; // Sender e-mailen tilbage
     }
 
     // Spørger hvor ofte brugeren vil have nyhedsbrevet (12, 4 eller 1 gang om året)
     static int InputFrequency() // Returnerer 12, 4 eller 1
     {
-        int frekvens = 0; // Her gemmes valget
-        bool gyldig = false; // Bliver true når valget er godkendt
-
         Console.WriteLine("Hvor ofte vil du have nyhedsbrevet?"); // Spørgsmål
         Console.WriteLine("  12 = Hver måned"); // Mulighed 1
         Console.WriteLine("   4 = Hver 3. måned"); // Mulighed 2
         Console.WriteLine("   1 = Én gang om året"); // Mulighed 3
-
-        while (!gyldig) // Spørger igen indtil valget er gyldigt
-        {
-            Console.Write("Vælg 12, 4 eller 1: "); // Beder om et valg
-            string svar = Console.ReadLine() ?? ""; // Læser valget
-
-            if (svar == "12" || svar == "4" || svar == "1") // Et af de tilladte valg
-            {
-                frekvens = int.Parse(svar); // Laver teksten om til et tal
-                gyldig = true; // Stopper løkken
-            }
-            else // Ugyldigt valg
-            {
-                ShowError("Du skal vælge 12, 4 eller 1"); // Fejlbesked
-            }
-        }
-
+        Console.Write("Vælg 12, 4 eller 1: "); // Beder om et valg
+        string svar = Console.ReadLine() ?? ""; // Læser valget
+        int frekvens = int.Parse(svar); // Laver teksten om til et tal
         return frekvens; // Sender valget tilbage
     }
 
